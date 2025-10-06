@@ -10,7 +10,6 @@ function addTaskToList(newTask) {
 let addTask = document.getElementById("add-task");
 let task = document.getElementById("task-name");
 let listOfTasks = document.querySelector(".list-of-tasks");
-let deleteTask = document.getElementsByClassName("delete-task");
 
 function renderTasks() {
     listOfTasks.innerHTML = "";
@@ -35,6 +34,8 @@ addTask.addEventListener("click", function () {
         addTaskToList({ task: task.value, completed: false });
         renderTasks();
         task.value = "";
+    } else {
+        alert("Please enter a task name.");
     }
 });
 
@@ -43,6 +44,8 @@ task.addEventListener("keydown", function (e) {
         addTaskToList({ task: task.value, completed: false });
         renderTasks();
         task.value = "";
+    } else if (e.key === "Enter") {
+        alert("Please enter a task name.");
     }
 });
 
